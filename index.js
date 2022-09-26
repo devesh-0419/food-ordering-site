@@ -5,6 +5,8 @@ const cookieParser=require('cookie-parser');
 const app = express();
 require('dotenv').config();
 
+const getFoodItem=require('./routes/getFoodItem');
+const addFoodItem=require('./routes/addFoodItem');
 
 // app.use(cors({
 //      origin: ["http://localhost:3000", "https://dine-it.netlify.app","http://192.168.43.230:3000/"]
@@ -16,7 +18,8 @@ app.use(cookieParser())
  
 app.use(express.json());
 
-
+app.use('/api/v1/getItem',getFoodItem);
+app.use('/api/v1/addItem',addFoodItem);
 
  
 mongoose.connect(process.env.DB_URI).then(
