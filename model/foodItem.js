@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const foodItemSchema= mongoose.Schema({
+const foodItemSchema=new mongoose.Schema({
     name:{
       type:String,
       required:true,
