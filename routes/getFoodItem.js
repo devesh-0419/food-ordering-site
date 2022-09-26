@@ -4,7 +4,7 @@ const router= express();
 
 router.get('/',async(req,res)=>{
       try {
-        let items = await FoodItem.findAll();
+        let items = await FoodItem.find({restaurantId:req.body.restaurantId});
         if(items) return res.send(items);
 
         return res.send("No food item found..");

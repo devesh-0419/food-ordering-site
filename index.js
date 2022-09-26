@@ -9,11 +9,11 @@ const getFoodItem=require('./routes/getFoodItem');
 const addFoodItem=require('./routes/addFoodItem');
 const store=require('./routes/store');
 
-// app.use(cors({
-//      origin: ["http://localhost:3000", "https://dine-it.netlify.app","http://192.168.43.230:3000/"]
-//     ,
-//     credentials:true
-// }));
+app.use(cors({
+     origin: ["http://localhost:3001", "https://dine-it.netlify.app","http://192.168.43.230:3000/"]
+    ,
+    credentials:true
+}));
 
 app.use(cookieParser())
  
@@ -33,5 +33,15 @@ mongoose.connect('mongodb://localhost:27017/Dine-IT').then(
     })  
     
 ).catch(err=>console.error(err));
+
+const loginRoute=require('./auth/Login');
+const SignUpRoute=require('./auth/SignUp');
+const OtpRoute=require('./auth/AuthOtp');
+const UserInfoRoute=require('./UserInfoRoute/UserInfo');
+
+app.use('/login', loginRoute);
+app.use('/signup',SignUpRoute);
+app.use('/signup/otp',OtpRoute);
+app.use('/userinfo',UserInfoRoute)
                     
    

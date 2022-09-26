@@ -34,8 +34,11 @@ const foodItemSchema=new mongoose.Schema({
    rating:{
     type : Number
     
-   }
-
+   },
+restaurantID:{
+     type:String,
+     required:true
+}
     
 });
 

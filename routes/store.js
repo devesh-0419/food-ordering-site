@@ -6,8 +6,8 @@ const router= express();
 
 router.get('/getStore',async (req,res)=>{
      try {
-        console.log('req.cookies', req.headers.city);
-        let stores= await Store.find({city:req.headers.city});
+       // console.log('req.cookies', req.headers.city);
+        let stores= await Store.find({city:req.body.city});
         if(stores) return res.json(stores);
 
         return res.send('No store listed');
