@@ -7,10 +7,11 @@ require('dotenv').config();
 
 const getFoodItem=require('./routes/getFoodItem');
 const addFoodItem=require('./routes/addFoodItem');
+const orders=require('./routes/order');
 const store=require('./routes/store');
 
 app.use(cors({
-     origin: ["http://localhost:3001", "https://dine-it.netlify.app","http://192.168.43.230:3000/"]
+     origin: ["http://localhost:3000", "https://dine-it.netlify.app","http://192.168.43.230:3000/"]
     ,
     credentials:true
 }));
@@ -21,10 +22,11 @@ app.use(express.json());
 
 app.use('/api/v1/getItem',getFoodItem);
 app.use('/api/v1/addItem',addFoodItem);
+app.use('/api/v1/sucessOrder',orders);
 app.use('/api/v1',store);
 
  
-mongoose.connect('mongodb://localhost:27017/Dine-IT').then(
+mongoose.connect(process.env.DB_URI).then(
     app.listen(process.env.PORT|| 8443 ,(err)=>{
         if(err) console.error(err)
         else

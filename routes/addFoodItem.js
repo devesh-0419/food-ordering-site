@@ -7,9 +7,11 @@ router.post('/',async(req,res)=>{
       try {
 
         let item=addItem(req.body);
-          res.send(item);
+       if(item) return res.json({message:"item is added to your menu"});
+
+       return res.json({message:"couldn't add item"});
       } catch (e) {
         console.error(e);
-      }
+      } 
 });
 module.exports=router;

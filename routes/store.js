@@ -4,7 +4,7 @@ const Store= require('../model/store');
 const express = require('express');
 const router= express();
 
-router.get('/getStore',async (req,res)=>{
+router.post('/getStore',async (req,res)=>{
      try {
        // console.log('req.cookies', req.headers.city);
         let stores= await Store.find({city:req.body.city});

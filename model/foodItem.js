@@ -28,7 +28,7 @@ const foodItemSchema=new mongoose.Schema({
     maxlength:5000
    },
    price:{
-      type : Number,
+      type : String,
       required:true
    },
    rating:{
