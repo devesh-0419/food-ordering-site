@@ -18,8 +18,10 @@ const users=req.body;
                     res.json({isDuplicateUser:true,isEmailSent:false})
                 }
                 else{
-                    
-                    (true)? res.status(200).json({isDuplicateUser:false,isEmailSent:true}) :
+                    const mailRes =mailSenderFun(result.email,"verifying sign Up mail",{otp:result.otp,name:users.name});
+
+                    (mailRes)? 
+                    res.status(200).json({isDuplicateUser:false,isEmailSent:true}) :
                     res.status(200).json({isDuplicateUser:false,isEmailSent:false});
                 }
             })

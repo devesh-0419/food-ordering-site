@@ -1,3 +1,4 @@
+const { required } = require('joi');
 const mongoose=require('mongoose');
 
 const foodItemSchema=new mongoose.Schema({
@@ -35,14 +36,15 @@ const foodItemSchema=new mongoose.Schema({
     type : Number
     
    },
-restaurantID:{
-     type:String,
-     required:true
-}
+   restaurant_id:{
+      type:mongoose.Schema.Types.ObjectId,
+      required:true
+   }
+
     
 });
 
 
-const FoodItem= mongoose.model('FoodItem',foodItemSchema);
+ const FoodItem= mongoose.model('FoodItem',foodItemSchema);
 
 module.exports=FoodItem; 

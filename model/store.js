@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+const foodItemSchema=require('./foodItem');
 const storeSchema=new mongoose.Schema({
     name:{
         type:String,
@@ -11,15 +11,16 @@ const storeSchema=new mongoose.Schema({
     cuisine:{
          type:String
     },
-    // images:{
-    //     type:Buffer,
-    //     contentType:String
-    // },
     city:{
         type:String,
         required:true
 
-    }
+    },
+  dishes_ids:{
+    type:[mongoose.Schema.Types.ObjectId]
+    
+  }
+
 });
 
 const Store=mongoose.model('Store',storeSchema);

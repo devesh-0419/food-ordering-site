@@ -9,7 +9,7 @@ router.post('/getStore',async (req,res)=>{
        // console.log('req.cookies', req.headers.city);
         let stores= await Store.find({city:req.body.city});
         if(stores) return res.json(stores);
-
+        
         return res.send('No store listed');
      } catch (error) {
         console.error(error);
@@ -21,7 +21,7 @@ router.post('/addStore',async (req,res)=>{
        try {
         let store= new Store(req.body);
         await store.save();
-        return res.json({message:"Your store is added to our list"});
+        return res.json(store);
        } catch (error) {
         return console.error(error);
        }
