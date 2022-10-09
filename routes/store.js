@@ -4,6 +4,8 @@ const Store= require('../model/store');
 const express = require('express');
 const router= express();
 
+
+// All Stores detail
 router.post('/getStore',async (req,res)=>{
      try {
        // console.log('req.cookies', req.headers.city);
@@ -15,6 +17,22 @@ router.post('/getStore',async (req,res)=>{
         console.error(error);
      }
 });
+
+// Store by id and all the Dishes it serves
+
+router.post('/getStore/:id',async (req,res)=>{
+    let store = await Store.findById(req.params.id)
+                           .populate('dishes_ids','name price -_id')
+                           .select('name city dishes_ids -_id');
+
+    if(store){
+      return res.json(store);
+    }
+
+    return res.json({message:'Store not found...'});
+});
+
+
 
 router.post('/addStore',async (req,res)=>{
    

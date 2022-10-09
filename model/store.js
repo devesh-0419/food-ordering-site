@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const foodItemSchema=require('./foodItem');
+const FoodItem=require('./foodItem');
 const storeSchema=new mongoose.Schema({
     name:{
         type:String,
@@ -17,8 +17,8 @@ const storeSchema=new mongoose.Schema({
 
     },
   dishes_ids:{
-    type:[mongoose.Schema.Types.ObjectId]
-    
+    type:[mongoose.Schema.Types.ObjectId],
+    ref:'FoodItem'
   }
 
 });
