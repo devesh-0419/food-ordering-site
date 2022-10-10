@@ -19,7 +19,16 @@ const storeSchema=new mongoose.Schema({
   dishes_ids:{
     type:[mongoose.Schema.Types.ObjectId],
     ref:'FoodItem'
+  },
+  pendingOrder:{
+    type:[mongoose.Schema.Types.ObjectId],
+    ref:'Order'
+  },
+  sucessfulOrder:{
+    type:[mongoose.Schema.Types.ObjectId],
+    ref:'Order'
   }
+
 
 });
 

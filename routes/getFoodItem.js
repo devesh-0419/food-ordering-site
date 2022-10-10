@@ -3,7 +3,7 @@ const express = require('express');
 const router= express();
 
 // get food items by name and [location (now pending)]
-router.post('/', async(req,res)=>{
+router.get('/', async(req,res)=>{
    try {
     let items =await FoodItem.find({name:{$regex:req.query.name, $options:"i"}})
                              .populate('restaurant_id','name city -_id')
