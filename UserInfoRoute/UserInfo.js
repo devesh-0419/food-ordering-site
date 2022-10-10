@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../Schema/UserDataSchema");
+const { User } = require("../model/UserDataSchema");
 
 router.route("/").post((req, res) => {
     const logUser = req.body;

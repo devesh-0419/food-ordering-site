@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Auth, tempAuth}=require('../Schema/AuthSchema');
+const {Auth, tempAuth}=require('../model/AuthSchema');
 const {mailSenderFun}=require('../HelperFunctions/MailSenderFunction');
 
 router.route('/').post((req,res)=>{

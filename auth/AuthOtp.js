@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const {tempAuth,Auth} =require('../Schema/AuthSchema');
-const {User} =require('../Schema/UserDataSchema');
+const {tempAuth,Auth} =require('../model/AuthSchema');
+const {User} =require('../model/UserDataSchema');
 
 router.route('/').post( (req,res)=>{
     const UserSideData=req.body;

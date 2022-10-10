@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-const { Auth } = require("../Schema/AuthSchema");
+const { Auth } = require("../model/AuthSchema");
 const jwt = require("jsonwebtoken");
 
 router.route("/").post((req, res) => {
