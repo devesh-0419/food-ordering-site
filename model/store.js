@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const FoodItem=require('./foodItem');
+const Dishes=require('./dishes');
 const storeSchema=new mongoose.Schema({
   owner_id:{
     type:mongoose.Schema.Types.ObjectId,
@@ -25,7 +25,7 @@ const storeSchema=new mongoose.Schema({
     },
   dishes_ids:{
     type:[mongoose.Schema.Types.ObjectId],
-    ref:'FoodItem'
+    ref:'Dishes'
   },
   pendingOrder:{
     type:[mongoose.Schema.Types.ObjectId],

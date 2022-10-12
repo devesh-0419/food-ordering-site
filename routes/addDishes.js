@@ -1,5 +1,5 @@
 const express = require('express');
-const addItem=require("../controllers/addItem")
+const addItem=require("../controllers/addDish")
 const router= express();
 
 
@@ -14,4 +14,6 @@ router.post('/',async(req,res)=>{
         console.error(e);
       } 
 });
+
+// edit Dishes detail
 module.exports=router;

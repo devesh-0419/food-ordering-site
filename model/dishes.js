@@ -1,7 +1,7 @@
 const { required } = require('joi');
 const mongoose=require('mongoose');
 
-const foodItemSchema=new mongoose.Schema({
+const dishesSchema=new mongoose.Schema({
     name:{
       type:String,
       required:true,
@@ -51,6 +51,6 @@ const foodItemSchema=new mongoose.Schema({
 });
 
 
- const FoodItem= mongoose.model('FoodItem',foodItemSchema);
+ const Dishes= mongoose.model('Dishes',dishesSchema);
 
-module.exports=FoodItem; 
+module.exports=Dishes; 

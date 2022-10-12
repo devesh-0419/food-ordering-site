@@ -2,11 +2,12 @@ const Store= require('../model/store');
 //const addStore= require('../controllers/addStore');
 
 const express = require('express');
-const { validate } = require('../model/foodItem');
+const { validate } = require('../model/dishes');
 const router= express();
 
 
-// All Stores detail
+// GET All Stores detail
+
 router.post('/getStore',async (req,res)=>{
      try {
        // console.log('req.cookies', req.headers.city);
@@ -40,7 +41,8 @@ return res.json({message:'Store not found...'});
 });
 
 
-// add store in the 
+// add store in the site
+
 router.post('/addStore',async (req,res)=>{
    
        try {
@@ -52,5 +54,11 @@ router.post('/addStore',async (req,res)=>{
         return console.error(error);
        }
 });
+
+
+
+// Update Store info by id
+     // write code 
+
 
 module.exports=router;

@@ -11,9 +11,9 @@ const orderSchema = new mongoose.Schema({
         ref:'Store',
         required:true
     },
-    foodItemIds:{
+    dishesIds:{
         type:[mongoose.Schema.Types.ObjectId],
-        ref:'FoodItem',
+        ref:'Dishes',
         required:true
     },
     address:{

@@ -5,8 +5,8 @@ const cookieParser=require('cookie-parser');
 const app = express();
 require('dotenv').config();
 
-const getFoodItem=require('./routes/getFoodItem');
-const addFoodItem=require('./routes/addFoodItem');
+const getDishes=require('./routes/getDishes');
+const addDishes=require('./routes/addDishes');
 const orders=require('./routes/order');
 const store=require('./routes/store');
 
@@ -20,8 +20,8 @@ app.use(cookieParser())
  
 app.use(express.json());
 
-app.use('/api/v1/getItem',getFoodItem);
-app.use('/api/v1/addItem',addFoodItem);
+app.use('/api/v1/getItem',getDishes);
+app.use('/api/v1/addItem',addDishes);
 app.use('/api/v1/sucessOrder',orders);
 app.use('/api/v1',store);
 

@@ -1,11 +1,11 @@
-const FoodItem = require('../model/foodItem');
+const Dishes = require('../model/dishes');
 const express = require('express');
 const router= express();
 
 // get food items by name and [location (now pending)]
 router.get('/', async(req,res)=>{
    try {
-    let items =await FoodItem.find({name:{$regex:req.query.name, $options:"i"}})
+    let items =await Dishes.find({name:{$regex:req.query.name, $options:"i"}})
                              .populate('restaurant_id','name city -_id')
                              .select('name price restaurant_id -_id');
     //console.log('req.query', req.q);

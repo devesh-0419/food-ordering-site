@@ -1,8 +1,8 @@
-const FoodItem = require('../model/foodItem');
+const Dishes = require('../model/dishes');
 const Store = require("../model/store");
-async function addFoodItem(item){
+async function addDishes(item){
     
-    let newItem=new FoodItem(item);
+    let newItem=new Dishes(item);
 
     let result= await newItem.save();
     let store = await Store.findById({_id:item.restaurant_id}); 
@@ -11,4 +11,4 @@ async function addFoodItem(item){
      return result;
 }
 
-module.exports=addFoodItem;
+module.exports=addDishes;
