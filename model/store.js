@@ -1,6 +1,13 @@
 const mongoose=require('mongoose');
 const FoodItem=require('./foodItem');
 const storeSchema=new mongoose.Schema({
+  owner_id:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'User',
+    required:true,
+    minlenght:3,
+    maxlength:255
+  },
     name:{
         type:String,
         required:true,
@@ -27,6 +34,10 @@ const storeSchema=new mongoose.Schema({
   sucessfulOrder:{
     type:[mongoose.Schema.Types.ObjectId],
     ref:'Order'
+  },
+  open:{
+type:Boolean
+
   }
 
 

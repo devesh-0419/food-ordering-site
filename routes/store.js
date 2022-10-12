@@ -40,7 +40,7 @@ return res.json({message:'Store not found...'});
 });
 
 
-
+// add store in the 
 router.post('/addStore',async (req,res)=>{
    
        try {

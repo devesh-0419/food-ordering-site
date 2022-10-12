@@ -40,6 +40,11 @@ const foodItemSchema=new mongoose.Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:'Store',
       required:true
+   },
+   available:{
+      type:Boolean,
+      default:true,
+      
    }
 
     
