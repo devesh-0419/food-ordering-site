@@ -1,5 +1,4 @@
 const mongoose=require('mongoose');
-const Dishes=require('./dishes');
 const storeSchema=new mongoose.Schema({
   owner_id:{
     type:mongoose.Schema.Types.ObjectId,

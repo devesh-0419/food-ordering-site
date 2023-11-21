@@ -35,7 +35,7 @@ const dishesSchema=new mongoose.Schema({
    rating:{
     type : Number
     
-   },
+   }, 
    restaurant_id:{
       type:mongoose.Schema.Types.ObjectId,
       ref:'Store',
@@ -50,6 +50,8 @@ const dishesSchema=new mongoose.Schema({
     
 });
 
+
+ 
 
  const Dishes= mongoose.model('Dishes',dishesSchema);
 

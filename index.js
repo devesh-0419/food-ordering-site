@@ -5,8 +5,7 @@ const cookieParser=require('cookie-parser');
 const app = express();
 require('dotenv').config();
 
-const getDishes=require('./routes/getDishes');
-const addDishes=require('./routes/addDishes');
+const dishes=require('./routes/dishes');
 const orders=require('./routes/order');
 const store=require('./routes/store');
 
@@ -20,11 +19,10 @@ app.use(cookieParser())
  
 app.use(express.json());
 
-app.use('/api/v1/getItem',getDishes);
-app.use('/api/v1/addItem',addDishes);
+app.use('/api/v1/dishes',dishes);
 app.use('/api/v1/sucessOrder',orders);
 app.use('/api/v1',store);
-
+ 
  
 mongoose.connect(process.env.DB_URI).then(
     app.listen(process.env.PORT|| 8443 ,(err)=>{
@@ -36,14 +34,7 @@ mongoose.connect(process.env.DB_URI).then(
     
 ).catch(err=>console.error(err));
 
-const loginRoute=require('./auth/Login');
-const SignUpRoute=require('./auth/SignUp');
-const OtpRoute=require('./auth/AuthOtp');
 const UserInfoRoute=require('./UserInfoRoute/UserInfo');
-
-app.use('/login', loginRoute);
-app.use('/signup',SignUpRoute);
-app.use('/signup/otp',OtpRoute);
 app.use('/userinfo',UserInfoRoute)
                     
    

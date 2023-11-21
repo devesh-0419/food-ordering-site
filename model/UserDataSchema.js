@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 
 const addtionalDetailsSchema = new mongoose.Schema({
- userStatus:{type:String},
+ userStatus:{
+  type:String
+},
  previousResults:{
    type:Array
- }
+ } 
 });
 
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true,
     minlength: 3,
   },
   email: {
@@ -19,6 +20,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     lowercase: true,
   },
+  
   AddtionalDetailsArr: {
     type: Array,
     addtionalDetailsSchema

@@ -11,10 +11,12 @@ const router= express();
 router.post('/getStore',async (req,res)=>{
      try {
        // console.log('req.cookies', req.headers.city);
-        let stores= await Store.find({city:req.body.city});
-        if(stores) return res.json(stores);
+       let {city} = req.body;
+        let stores= await Store.find({city:{$regex:city,$options:"i"}});
+        if(stores.length>0) return res.json(stores);
         
-        return res.send('No store listed');
+        return res.send("No Store in this Location..");
+
      } catch (error) {
         console.error(error);
      }
